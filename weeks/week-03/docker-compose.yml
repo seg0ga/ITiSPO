@@ -1,0 +1,42 @@
+services:
+  invoices-svc-s05:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8208:8000"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8000
+    restart: unless-stopped
+    networks:
+      - microservices-network
+
+  other-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.other
+    ports:
+      - "8209:8001"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8001
+    restart: unless-stopped
+    networks:
+      - microservices-network
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./infra/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - invoices-svc-s05
+      - other-service
+    networks:
+      - microservices-network
+
+networks:
+  microservices-network:
+    driver: bridge
