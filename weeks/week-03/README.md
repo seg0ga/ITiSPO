@@ -20,3 +20,10 @@
 3. **Проверить**:
    - Клиент делает запрос только в Nginx.✅
    - Nginx сам решает, куда переслать запрос (маршрутизация).✅
+
+## Результаты работы:
+<img width="701" height="366" alt="image" src="https://github.com/user-attachments/assets/8367dd8a-c39a-4b2c-b14f-ded449f46a81" />
+<img width="1280" height="778" alt="image" src="https://github.com/user-attachments/assets/371db9a1-b88f-46ba-87c6-4a56d1755590" />
+<img width="1280" height="630" alt="image" src="https://github.com/user-attachments/assets/8265d641-29d0-4ac1-a9f0-3aaea14f2b1a" />
+<img width="1280" height="278" alt="image" src="https://github.com/user-attachments/assets/dc9b9406-2443-4e0f-ba9b-76defbf4506a" />
+<img width="1280" height="299" alt="image" src="https://github.com/user-attachments/assets/001c40c2-9dcd-4f7d-91d4-d9979bb69e17" />
