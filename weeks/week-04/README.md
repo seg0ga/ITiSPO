@@ -24,3 +24,4 @@
    - Если отмена резерва не удалась — нужно попробовать еще раз (retry), пока не получится.✅
 
 ## Результаты работы:
+<img width="698" height="372" alt="image" src="https://github.com/user-attachments/assets/d217e164-7ae8-408e-bb38-9a7aa7ce2b38" />
