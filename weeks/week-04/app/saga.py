@@ -1,8 +1,12 @@
 
-# Реализуйте здесь простую машину состояний (State Machine).
-# Функция должна принимать текущее состояние и событие,
-# и возвращать следующее состояние.
-
 def next_state(state: str, event: str) -> str:
-    # Ваш код здесь
-    raise NotImplementedError
+    if state=="NEW":
+        if event=="PAY_OK":return "PAID"
+        elif event=="PAY_FAIL":return "CANCELLED"
+    elif state=="PAID":
+        if event=="complete":return "DONE"
+        elif event=="cancel" or event=="fail":return "CANCELLED"
+    elif state=="DONE":return "DONE"
+    elif state=="CANCELLED":return "CANCELLED"
+
+    return state
