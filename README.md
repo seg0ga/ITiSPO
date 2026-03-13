@@ -27,7 +27,7 @@
 |4|Саги и распределенные транзакции |🟢|Отправлено для оценивания|https://clck.ru/3SS73T|0|
 |5|Гибкий API с GraphQL |🟢|Отправлено для оценивания|https://clck.ru/3SS74K|0|
 |6|Пишем GraphQL-клиент |🟢|Отправлено для оценивания|https://clck.ru/3SX7Nm|0|
-|7|Знакомство с gRPC|🔴|Не готово|https://clck.ru/3SX8Wc|0|
+|7|Знакомство с gRPC|🟢|Отправлено для оценивания|https://clck.ru/3SX8Wc|0|
 |8|gRPC Streaming и Бенчмарки |🔴|Не готово|https://clck.ru/3SX8Xe|0|
 |9|WebRTC и P2P коммуникация |🔴|Не готово|https://clck.ru/3SX8YJ|0|
 |10|Упаковываем всё в Docker |🔴|Не готово|https://clck.ru/3SX8ZX|0|
