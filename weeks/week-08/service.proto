@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package photos;
+
+service PhotosService {
+    rpc GetPhoto (PhotoRequest) returns (PhotoResponse);
+    rpc SubscribePhotos (SubscribeRequest) returns (stream PhotoUpdate);
+}
+
+message PhotoRequest {
+    string id = 1;
+}
+
+message PhotoResponse {
+    string id = 1;
+    string title = 2;
+    string description = 3;
+}
+
+message SubscribeRequest {
+    repeated string ids = 1;
+}
+
+message PhotoUpdate {
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    string event_type = 4;
+    int64 timestamp = 5;
+}
