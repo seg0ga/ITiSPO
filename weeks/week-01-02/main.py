@@ -1,6 +1,7 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException,Request
 from typing import List
 from schemas import Product, ProductCreate
+from fastapi.responses import JSONResponse
 
 app = FastAPI(title="Inventory Microservice")
 
