@@ -4,14 +4,14 @@ from coursekit.koan import need
 from coursekit.variant import load_variant
 
 ROOT = Path(__file__).resolve().parents[3]
-DOCKERFILE = ROOT / 'weeks' / 'week-10' / 'Dockerfile'
+DOCKERFILE = ROOT / 'weeks' / 'week-10' / 'Dockerfile.noopt'
 DOCKERIGNORE = ROOT / 'weeks' / 'week-10' / '.dockerignore'
 REPORT = ROOT / 'weeks' / 'week-10' / 'report.md'
 
 def test_dockerfile():
-    need(DOCKERFILE.exists(), f"Создайте Dockerfile: {DOCKERFILE}")
+    need(DOCKERFILE.exists(), f"Создайте Dockerfile.noopt: {DOCKERFILE}")
     text = DOCKERFILE.read_text()
-    need('FROM' in text and 'CMD' in text, "Dockerfile должен содержать FROM и CMD.\nПодсказка: сначала базовый образ, затем команда запуска.")
+    need('FROM' in text and 'CMD' in text, "Dockerfile.noopt должен содержать FROM и CMD.\nПодсказка: сначала базовый образ, затем команда запуска.")
     v = load_variant("10")
     need(f"EXPOSE {v['service']['port']}" in text, "Добавьте EXPOSE с портом из варианта.\nПодсказка: EXPOSE должен совпадать с service.port.")
     need(text.upper().count('FROM') >= 2, "Используйте multi-stage: минимум два FROM.\nПодсказка: один FROM для сборки, второй для запуска.")

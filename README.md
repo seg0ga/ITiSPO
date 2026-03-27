@@ -31,7 +31,7 @@
 |7|Знакомство с gRPC|🟢|Оценено|https://clck.ru/3SX8Wc|100|
 |8|gRPC Streaming и Бенчмарки |🟡|Отправлено для оценивания|https://clck.ru/3SX8Xe|0|
 |9|WebRTC и P2P коммуникация |🟡|Отправлено для оценивания|https://clck.ru/3SX8YJ|0|
-|10|Упаковываем всё в Docker |🟠|Требуются доработки|https://clck.ru/3SX8ZX|0|
+|10|Упаковываем всё в Docker |🟡|Отправлено для оценивания|https://clck.ru/3SX8ZX|0|
 |11|Оркестрация для бедных (Docker Compose) |🔴|Не готово|https://clck.ru/3SX8a2|0|
 |12|Введение в Kubernetes |🔴|Не готово |https://clck.ru/3SX8ae|0|
 |13|Пакетный менеджер Helm |🔴|Не готово|https://clck.ru/3SX8bF|0|
