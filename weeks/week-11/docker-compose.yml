@@ -1,22 +1,27 @@
 version: '3.9'
+
 services:
-  app:
-    # Замените на имя образа
-    image: primer/obraz
+  reviews-svc-s05:
+    build: ./app
+    ports:
+      - "8149:8000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 10s
       timeout: 3s
       retries: 3
     networks:
-      - app-net
+      - app-network
+
   gateway:
-    # Замените на имя образа
-    image: primer/obraz
+    build: ./gateway
+    ports:
+      - "8080:80"
     depends_on:
-      - app
+      - reviews-svc-s05
     networks:
-      - app-net
+      - app-network
+
 networks:
-  app-net:
+  app-network:
     driver: bridge

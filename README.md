@@ -32,7 +32,7 @@
 |8|gRPC Streaming и Бенчмарки |🟡|Отправлено для оценивания|https://clck.ru/3SX8Xe|0|
 |9|WebRTC и P2P коммуникация |🟡|Отправлено для оценивания|https://clck.ru/3SX8YJ|0|
 |10|Упаковываем всё в Docker |🟢|Оценено|https://clck.ru/3SX8ZX|100|
-|11|Оркестрация для бедных (Docker Compose) |🔴|Не готово|https://clck.ru/3SX8a2|0|
+|11|Оркестрация для бедных (Docker Compose) |🟡|Отправлено для оценивания|https://clck.ru/3SX8a2|0|
 |12|Введение в Kubernetes |🔴|Не готово |https://clck.ru/3SX8ae|0|
 |13|Пакетный менеджер Helm |🔴|Не готово|https://clck.ru/3SX8bF|0|
 |14|Автоматизация (CI/CD) |🔴|Не готово|https://clck.ru/3SX8mi|0|
