@@ -1,6 +1,13 @@
 replicaCount: 3
+
 image:
-  repository: primer/obraz
+  repository: notifications-app
   tag: "prod"
-service:
-  port: 8000
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "500m"
+  limits:
+    memory: "512Mi"
+    cpu: "1000m"

@@ -34,7 +34,7 @@
 |     10     | Упаковываем всё в Docker                |    🟢    |          Оценено          | https://clck.ru/3SX8ZX |  100   |
 |     11     | Оркестрация для бедных (Docker Compose) |    🟠    | Готово, но не отправлено  | https://clck.ru/3SX8a2 |   0    |
 |     12     | Введение в Kubernetes                   |    🟠    | Готово, но не отправлено  | https://clck.ru/3SX8ae |   0    |
-|     13     | Пакетный менеджер Helm                  |    🔴    |         Не готово         | https://clck.ru/3SX8bF |   0    |
+|     13     | Пакетный менеджер Helm                  |    🟠    | Готово, но не отправлено  | https://clck.ru/3SX8bF |   0    |
 |     14     | Автоматизация (CI/CD)                   |    🔴    |         Не готово         | https://clck.ru/3SX8mi |   0    |
 |     15     | Анализ производительности               |    🔴    |         Не готово         | https://clck.ru/3SX8ch |   0    |
 |     16     | Безопасность (Security Audit)           |    🔴    |         Не готово         | https://clck.ru/3SX8d5 |   0    |
