@@ -1,0 +1,19 @@
+services:
+  logs-svc-s05:
+    build: ./logs-service
+    ports:
+      - "8299:8000"
+    depends_on:
+      - log-notifier
+
+  log-notifier:
+    build: ./notifier-service
+    ports:
+      - "50051:50051"
+
+  gateway:
+    build: ./gateway
+    ports:
+      - "8080:80"
+    depends_on:
+      - logs-svc-s05

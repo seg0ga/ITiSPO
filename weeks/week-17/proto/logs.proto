@@ -1,0 +1,14 @@
+syntax="proto3";
+
+package logs.v1;
+
+service LogsService {rpc NotifyLogCreated (NotifyLogRequest) returns (NotifyLogResponse);}
+
+message NotifyLogRequest{
+  string id=1;
+  string message=2;
+  string level=3;}
+
+message NotifyLogResponse{
+  bool ok=1;
+  string status=2;}
