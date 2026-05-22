@@ -62,7 +62,6 @@ async def update_invoice(invoice_id: int, invoice: InvoiceCreate):
     404: {"description":"Инвойс не найден"},
     500: {"description":"Ошибка сервера"}})
 async def delete_invoice(invoice_id: int):
-    global invoices_db
     for i, p in enumerate(invoices_db):
         if p.id == invoice_id:
             invoices_db.pop(i)

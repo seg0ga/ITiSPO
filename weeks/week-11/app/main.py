@@ -69,7 +69,6 @@ async def update_product(product_id: int, product: ProductCreate):
     404: {"description":"Товар не найден"},
     500: {"description":"Ошибка сервера"}})
 async def delete_product(product_id: int):
-    global products_db
     for i, p in enumerate(products_db):
         if p.id == product_id:
             products_db.pop(i)
