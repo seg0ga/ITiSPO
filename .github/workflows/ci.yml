@@ -25,6 +25,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Set variant environment variables
+        run: |
+          echo "COURSEKIT_PROJECT=433" >> $GITHUB_ENV
+          echo "COURSEKIT_SEMESTER=s05" >> $GITHUB_ENV
+          
+
       - name: Lint with flake8
         run: |
           pip install flake8
