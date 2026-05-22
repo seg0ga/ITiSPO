@@ -9,7 +9,7 @@ def notify_log_created(request_bytes:bytes,context: grpc.ServicerContext)->bytes
     log_id=payload.get("id")
     level=payload.get("level")
     message=payload.get("message")
-    print(f"received log id={log_id} level={level} message={message}")
+    print(f"received log id={log_id} level={level} message={message}", flush=True)
     response={"ok": True, "status": "notification accepted"}
     return json.dumps(response).encode("utf-8")
 
@@ -23,6 +23,7 @@ def serve()->None:
     server.add_generic_rpc_handlers((handler,))
     server.add_insecure_port("[::]:50051")
     server.start()
+    print("log-notifier запущен на порту 50051", flush=True)
     server.wait_for_termination()
 
 if __name__ == "__main__":serve()
