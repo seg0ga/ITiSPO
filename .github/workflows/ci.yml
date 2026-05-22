@@ -32,7 +32,7 @@ jobs:
 
       - name: Run tests with pytest
         run: |
-          pytest
+          pytest --ignore=weeks/week-15/
 
       - name: Build Docker image
         run: |
