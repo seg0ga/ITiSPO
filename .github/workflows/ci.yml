@@ -26,3 +26,9 @@ jobs:
 
       - name: Valid Docker Compose file
         run: docker compose -f weeks/week-17/docker-compose.yml config
+
+
+      - name: Check Docker Compose services
+        run: |
+          docker compose -f weeks/week-17/docker-compose.yml up -d
+          docker compose -f weeks/week-17/docker-compose.yml down
