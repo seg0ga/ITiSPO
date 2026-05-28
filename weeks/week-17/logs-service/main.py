@@ -1,5 +1,6 @@
 import json
 import os
+import time
 from collections import Counter
 
 import grpc
@@ -16,15 +17,17 @@ grpc_method="/logs.v1.LogsService/NotifyLogCreated"
 
 def notify_log_created(log: Log)->dict:
     payload=json.dumps(log.model_dump()).encode("utf-8")
-
-    try:
-        with grpc.insecure_channel(grpc_target) as channel:
-            stub=channel.unary_unary(
-                grpc_method,
-                request_serializer=lambda value:value,
-                response_deserializer=lambda value:json.loads(value.decode("utf-8")),)
-            return stub(payload,timeout=2)
-    except Exception:return {"ok":False,"status":"notifier unavailable"}
+    for attempt in range(3):
+        try:
+            with grpc.insecure_channel(grpc_target) as channel:
+                stub=channel.unary_unary(
+                    grpc_method,
+                    request_serializer=lambda value:value,
+                    response_deserializer=lambda value:json.loads(value.decode("utf-8")),)
+                return stub(payload,timeout=2)
+        except Exception:
+            if attempt<2:time.sleep(0.2)
+    return {"ok":False,"status":"notifier unavailable"}
 
 
 @app.get("/health")

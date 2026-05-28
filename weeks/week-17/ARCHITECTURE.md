@@ -26,8 +26,25 @@ log-notifier
 
 ## Данные
 - Логи хранятся в памяти приложения.
-- Отдельная база данных в этой упрощенной версии не используется.
+- Отдельная база данных не используется.
 
 ## Протоколы
 - REST используется для внешнего API.
-- gRPC используется для связи между сервисами.
+- gRPC используется для связи между logs-svc-s05 и log-notifier.
+
+## Развертывание
+- Локальный запуск сделан через docker compose.
+- Для Kubernetes есть отдельные прототипные манифесты.
+
+## Добавление лога
+```
+curl -X POST http://localhost:8080/api/logs/ -H "Content-Type: application/json" -d '{"message":"test log","level":"INFO"}'
+```
+
+## Проверка
+```
+docker compose up --build
+
+curl http://localhost:8080/api/logs/
+curl http://localhost:8080/api/logs/summary
+```
