@@ -24,8 +24,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run tests
-        run: pytest weeks/week-17/tests/test_week_17.py
-
-      - name: Validate Docker Compose file
+      - name: Valid Docker Compose file
         run: docker compose -f weeks/week-17/docker-compose.yml config

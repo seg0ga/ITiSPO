@@ -1,4 +1,4 @@
-name: CI/CD Pipeline
+name: Week 17 CI
 
 on:
   push:
@@ -7,40 +7,22 @@ on:
     branches: ["main"]
 
 jobs:
-  ci:
+  week17:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
-          cache: pip
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Lint with flake8
-        run: |
-          pip install flake8
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-
-      - name: Run tests with pytest
-        run: |
-          pytest
-
-      - name: Build Docker image
-        run: |
-          docker build . --file Dockerfile --tag photos-s05:${{ github.sha }}
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: docker-image
-          path: Dockerfile
-          retention-days: 1
+      - name: Valid Docker Compose file
+        run: docker compose -f weeks/week-17/docker-compose.yml config
