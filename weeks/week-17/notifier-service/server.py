@@ -9,7 +9,7 @@ notification_counter=1
 
 
 class LogsService(logs_pb2_grpc.LogsServiceServicer):
-    def NotifyLogCreated(self,request:logs_pb2.NotifyLogRequest,context:grpc.ServicerContext,)->logs_pb2.NotifyLogResponse:
+    def NotifyLogCreated(self,request,context):
         global notification_counter
         log_id=request.id
         level=request.level
@@ -25,7 +25,7 @@ class LogsService(logs_pb2_grpc.LogsServiceServicer):
         print(f"received log id={log_id} level={level} message={message}", flush=True)
         return logs_pb2.NotifyLogResponse(ok=True,status="notification accepted",stored=True)
 
-    def GetNotifications(self,request:logs_pb2.GetNotificationsRequest,context:grpc.ServicerContext,)->logs_pb2.GetNotificationsResponse:
+    def GetNotifications(self,request,context):
         limit=request.limit if request.limit>0 else None
         items=notifications
         if limit is not None:items=notifications[-limit:]
