@@ -2,7 +2,9 @@ syntax="proto3";
 
 package logs.v1;
 
-service LogsService {rpc NotifyLogCreated (NotifyLogRequest) returns (NotifyLogResponse);}
+service LogsService{
+  rpc NotifyLogCreated (NotifyLogRequest) returns (NotifyLogResponse);
+  rpc GetNotifications (GetNotificationsRequest) returns (GetNotificationsResponse);}
 
 message NotifyLogRequest{
   string id=1;
@@ -11,4 +13,20 @@ message NotifyLogRequest{
 
 message NotifyLogResponse{
   bool ok=1;
-  string status=2;}
+  string status=2;
+  bool stored=3;}
+
+message GetNotificationsRequest{
+  uint32 limit=1;}
+
+message Notification{
+  uint32 id=1;
+  string log_id=2;
+  string message=3;
+  string level=4;
+  string received_at=5;}
+
+message GetNotificationsResponse{
+  bool ok=1;
+  uint32 total=2;
+  repeated Notification notifications=3;}
