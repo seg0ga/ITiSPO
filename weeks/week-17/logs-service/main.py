@@ -1,11 +1,10 @@
-import json
 import os
 import time
 from collections import Counter
-
 import grpc
 from fastapi import FastAPI, HTTPException, Query
-
+import logs_pb2
+import logs_pb2_grpc
 from schemas import Log, LogCreate, LogSummary, NotificationList
 
 app=FastAPI(title="logs-s05")
@@ -13,37 +12,30 @@ app=FastAPI(title="logs-s05")
 logs_db=[]
 id_counter=1
 grpc_target=os.getenv("NOTIFIER_GRPC_TARGET","log-notifier:50051")
-grpc_method="/logs.v1.LogsService/NotifyLogCreated"
-grpc_notifications_method="/logs.v1.LogsService/GetNotifications"
 
 def notify_log_created(log: Log)->dict:
-    payload=json.dumps(log.model_dump()).encode("utf-8")
     for attempt in range(3):
         try:
             with grpc.insecure_channel(grpc_target) as channel:
-                stub=channel.unary_unary(
-                    grpc_method,
-                    request_serializer=lambda value:value,
-                    response_deserializer=lambda value:json.loads(value.decode("utf-8")),)
-                return stub(payload,timeout=2)
+                stub=logs_pb2_grpc.LogsServiceStub(channel)
+                request=logs_pb2.NotifyLogRequest(id=str(log.id),message=log.message,level=log.level,)
+                response=stub.NotifyLogCreated(request,timeout=2)
+                return {"ok":response.ok,"status":response.status,"stored":response.stored}
         except Exception:
             if attempt<2:time.sleep(0.2)
     return {"ok":False,"status":"notifier unavailable"}
 
 def get_notifications(limit:int|None=None)->NotificationList:
-    request_payload={}
-    if limit is not None:
-        request_payload["limit"]=limit
-    payload=json.dumps(request_payload).encode("utf-8")
     for attempt in range(3):
         try:
             with grpc.insecure_channel(grpc_target) as channel:
-                stub=channel.unary_unary(
-                    grpc_notifications_method,
-                    request_serializer=lambda value:value,
-                    response_deserializer=lambda value:json.loads(value.decode("utf-8")),)
-                data=stub(payload,timeout=2)
-                return NotificationList(**data)
+                stub=logs_pb2_grpc.LogsServiceStub(channel)
+                request=logs_pb2.GetNotificationsRequest()
+                if limit is not None:
+                    request.limit=limit
+                response=stub.GetNotifications(request,timeout=2)
+                return NotificationList(ok=response.ok,total=response.total,notifications=[{"id": item.id,"log_id": item.log_id,"message": item.message,"level": item.level,"received_at": item.received_at,}
+                        for item in response.notifications],)
         except Exception:
             if attempt<2:time.sleep(0.2)
     return NotificationList(ok=False,total=0,notifications=[])
