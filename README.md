@@ -32,12 +32,12 @@
 |     8      | gRPC Streaming и Бенчмарки              |    🟢    |          Оценено          | https://clck.ru/3SX8Xe |  100   |
 |     9      | WebRTC и P2P коммуникация               |    🟢    |          Оценено          | https://clck.ru/3SX8YJ |  100   |
 |     10     | Упаковываем всё в Docker                |    🟢    |          Оценено          | https://clck.ru/3SX8ZX |  100   |
-|     11     | Оркестрация для бедных (Docker Compose) |    🟡    | Отправлено для оценивания | https://clck.ru/3SX8a2 |   0    |
-|     12     | Введение в Kubernetes                   |    🟡    | Отправлено для оценивания | https://clck.ru/3SX8ae |   0    |
+|     11     | Оркестрация для бедных (Docker Compose) |    🟢    |          Оценено          | https://clck.ru/3SX8a2 |  100   |
+|     12     | Введение в Kubernetes                   |    🟢    |          Оценено          | https://clck.ru/3SX8ae |  100   |
 |     13     | Пакетный менеджер Helm                  |    🟢    |          Оценено          | https://clck.ru/3SX8bF |  100   |
-|     14     | Автоматизация (CI/CD)                   |    🟡    | Отправлено для оценивания | https://clck.ru/3SX8mi |   0    |
-|     15     | Анализ производительности               |    🟡    | Отправлено для оценивания | https://clck.ru/3SX8ch |   0    |
+|     14     | Автоматизация (CI/CD)                   |    🟢    |          Оценено          | https://clck.ru/3SX8mi |  100   |
+|     15     | Анализ производительности               |    🟢    |          Оценено          | https://clck.ru/3SX8ch |  100   |
 |     16     | Безопасность (Security Audit)           |    🟢    |          Оценено          | https://clck.ru/3SX8d5 |  100   |
-|     17     | Финальный проект                        |    🟡    | Отправлено для оценивания | https://clck.ru/3SX8dm |   0    |
+|     17     | Финальный проект                        |    🟢    |          Оценено          | https://clck.ru/3SX8dm |  100   |
 
 
